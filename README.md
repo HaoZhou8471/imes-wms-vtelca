@@ -14,7 +14,7 @@ Implementation of the **IMES-WMS** system at the **VTELCA** plant in Venezuela. 
 * **Industrial Scale:** Managed real-time traceability for large-scale manufacturing.
 
 
-English: Warehouse Management System (WMS) for the VELCA Project in Venezuela, developed for VTELCA and ZTE. Features an intuitive UI with Panels (Dashboards), advanced reporting, and user administration to optimize supply chain fulfillment operations.
+Warehouse Management System (WMS) for the VELCA Project in Venezuela, developed for VTELCA and ZTE. Features an intuitive UI with Panels (Dashboards), advanced reporting, and user administration to optimize supply chain fulfillment operations.
 
 ---
 
