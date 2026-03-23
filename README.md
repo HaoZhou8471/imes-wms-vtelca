@@ -1,3 +1,14 @@
+
+## Screenshots / 界面截图
+
+### Login & Dashboard
+![Login Page](./001.jpg)
+
+### Inventory Management
+![Inventory View](./002.jpg)
+
+### WMS Tracking
+![WMS Tracking](./003.jpg)
 # IMES-WMS Project for VTELCA (Venezuela)
 ### Industrial Manufacturing Execution System & Warehouse Management Solution
 
