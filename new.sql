@@ -26,6 +26,34 @@ SET time_zone = "+00:00";
 --
 -- 表的结构 `admin`
 --
+-- 1. 创建生产工单表 (Órdenes de Producción)
+CREATE TABLE production_orders (
+                                   id INT AUTO_INCREMENT PRIMARY KEY,
+                                   order_number VARCHAR(50) NOT NULL,
+                                   product_name VARCHAR(100) NOT NULL, -- 例如：Soldadora Inverter TIG-200 (TIG-200逆变焊机)
+                                   target_quantity INT NOT NULL,
+                                   completed_quantity INT DEFAULT 0,
+                                   status ENUM('Pendiente', 'En Producción', 'Control de Calidad', 'Completado') DEFAULT 'Pendiente',
+                                   start_date DATE,
+                                   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 2. 创建质量检测表 (Control de Calidad - QC) 工业设备极度看重QC
+CREATE TABLE quality_control (
+                                 id INT AUTO_INCREMENT PRIMARY KEY,
+                                 order_id INT,
+                                 inspector_name VARCHAR(50),
+                                 test_type VARCHAR(50), -- 例如：Prueba de Arco (起弧测试), Voltaje (电压测试)
+                                 result ENUM('Aprobado', 'Rechazado', 'Reproceso') NOT NULL,
+                                 comments TEXT,
+                                 FOREIGN KEY (order_id) REFERENCES production_orders(id)
+);
+
+-- 3. 插入针对“焊接设备”的演示数据
+INSERT INTO production_orders (order_number, product_name, target_quantity, completed_quantity, status, start_date) VALUES
+                                                                                                                        ('PO-2026-001', 'Soldadora Inverter MIG/MAG 300A', 50, 50, 'Completado', '2026-03-10'),
+                                                                                                                        ('PO-2026-002', 'Máquina de Soldar TIG Pro 250', 100, 45, 'En Producción', '2026-03-20'),
+                                                                                                                        ('PO-2026-003', 'Cortadora Plasma CNC 100A', 20, 0, 'Pendiente', '2026-03-25');
 
 CREATE TABLE `admin` (
   `Id` int(11) NOT NULL,
