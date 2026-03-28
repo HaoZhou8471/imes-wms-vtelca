@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ## Screenshots / 界面截图
 
